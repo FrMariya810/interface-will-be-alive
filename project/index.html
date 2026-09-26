@@ -14,21 +14,27 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#collection" aria-label="К началу коллекции">
-        <span class="brand__index">INDEX</span>
-        <span class="brand__count">/ 06</span>
+        <span class="brand__index">Жанры</span>
+        <span class="brand__count">/ 07</span>
       </a>
 
       <p class="site-header__course">Музыка · направления · стили</p>
-      <p class="site-header__status"><span aria-hidden="true"></span> Шесть направлений</p>
+      <p class="site-header__status"><span aria-hidden="true"></span> Семь направлений</p>
     </header>
 
     <main class="page" id="collection">
       <section class="intro" aria-labelledby="page-title">
         <p class="intro__eyebrow">Музыкальные направления</p>
-        <h1 id="page-title">Шесть направлений,<br />которые <em>меняют звук</em></h1>
+        <h1 id="page-title">Семь направлений,<br />которые <em>меняют звук</em></h1>
         <p class="intro__lead">
           Выберите карточку, отфильтруйте коллекцию или доверьте выбор случаю.
           Каждая карточка хранит данные о музыкальном направлении.
+        </p>
+        <p class="keyboard-hint">
+          Клавиши:
+          <kbd>←</kbd> <kbd>→</kbd> - перемещение по видимым карточкам,
+          <kbd>Esc</kbd> - сброс,
+          <kbd>Tab</kbd> - переход по элементам.
         </p>
       </section>
 
@@ -58,7 +64,7 @@
                 data-filter="popular"
                 aria-pressed="false"
               >
-                Интерфейс
+                Популярная
               </button>
               <button
                 class="filter-button"
@@ -71,7 +77,7 @@
             </div>
 
             <p class="result-count" aria-live="polite">
-              Показано карточек: <strong id="visible-count">6</strong>
+              Показано карточек: <strong id="visible-count">7</strong>
             </p>
           </div>
 
@@ -79,7 +85,7 @@
             <button
               class="collection-card"
               type="button"
-              data-title="Классическая музыка"
+              data-title="Классика"
               data-description="Жанр музыки, который исполняется по нотам и имеет строгую структуру."
               data-category="academic"
               aria-controls="details-panel"
@@ -89,7 +95,7 @@
                 <span>01</span><span>Академическая</span>
               </span>
               <span class="collection-card__symbol" aria-hidden="true">🎼</span>
-              <span class="collection-card__title">Классическая музыка</span>
+              <span class="collection-card__title">Классика</span>
               <span class="collection-card__summary">Симфонии, сонаты и оркестр</span>
             </button>
 
@@ -114,7 +120,7 @@
               class="collection-card"
               type="button"
               data-title="Рок"
-              data-description="Музыкальное направление, которое появилось из рок-н-ролла ."
+              data-description="Музыкальное направление, которое появилось из рок-н-ролла."
               data-category="popular"
               aria-controls="details-panel"
               aria-pressed="false"
@@ -147,6 +153,23 @@
             <button
               class="collection-card"
               type="button"
+              data-title="Джаз"
+              data-description="Направление XX века, выросшее из блюза и спиричуэла, с акцентом на импровизацию, свинг и ансамблевую игру."
+              data-category="popular"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>05</span><span>Популярная</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🎷</span>
+              <span class="collection-card__title">Джаз</span>
+              <span class="collection-card__summary">Импровизация и свинг</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
               data-title="Эмбиент"
               data-description="Электронное направление с акцентом на атмосферу."
               data-category="electronic"
@@ -154,7 +177,7 @@
               aria-pressed="false"
             >
               <span class="collection-card__meta">
-                <span>05</span><span>Электронная</span>
+                <span>06</span><span>Электронная</span>
               </span>
               <span class="collection-card__symbol" aria-hidden="true">🪐</span>
               <span class="collection-card__title">Эмбиент</span>
@@ -171,7 +194,7 @@
               aria-pressed="false"
             >
               <span class="collection-card__meta">
-                <span>06</span><span>Электронная</span>
+                <span>07</span><span>Электронная</span>
               </span>
               <span class="collection-card__symbol" aria-hidden="true">🔊</span>
               <span class="collection-card__title">Хаус</span>
@@ -196,7 +219,6 @@
             <h2 id="details-title">Выберите карточку</h2>
             <p id="details-description">
               Здесь появится описание выбранного музыкального направления.
-              Используйте данные из атрибутов карточки.
             </p>
           </div>
 
@@ -212,10 +234,9 @@
       <section class="assignment-note" aria-labelledby="assignment-title">
         <p class="assignment-note__index">HOMEWORK / 03</p>
         <div>
-          <h2 id="assignment-title">Ваш код должен выдерживать сочетание сценариев.</h2>
+          <h2 id="assignment-title">Музыкальные направления.</h2>
           <p>
-            Проверьте не только каждый клик отдельно, но и последовательности:
-            выбор → фильтр → случайный выбор → сброс.
+            Сайт показывает карточки с музыкальными направлениями.
           </p>
         </div>
       </section>
