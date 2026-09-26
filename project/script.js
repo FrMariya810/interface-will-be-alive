@@ -87,11 +87,14 @@ function applyFilter(filter) {
   }
 }
 
-randomButton.addEventListener("click", () => {
-  const visibleCards = Array.from(cards).filter(
+function getVisibleCards() {
+  return Array.from(cards).filter(
     (card) => !card.classList.contains("collection-card--hidden")
   );
+}
 
+randomButton.addEventListener("click", () => {
+  const visibleCards = getVisibleCards();
   if (visibleCards.length === 0) return;
 
   let pool = visibleCards;
@@ -109,6 +112,37 @@ randomButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
   applyFilter("all");
   clearSelection();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    applyFilter("all");
+    clearSelection();
+    return;
+  }
+
+  if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+    return;
+  }
+
+  const visible = getVisibleCards();
+  if (visible.length === 0) return;
+
+  event.preventDefault();
+
+  const currentIndex = selectedCard ? visible.indexOf(selectedCard) : -1;
+  let nextIndex;
+
+  if (currentIndex === -1) {
+    nextIndex = event.key === "ArrowRight" ? 0 : visible.length - 1;
+  } else {
+    const step = event.key === "ArrowRight" ? 1 : -1;
+    nextIndex = (currentIndex + step + visible.length) % visible.length;
+  }
+
+  const nextCard = visible[nextIndex];
+  showCard(nextCard);
+  nextCard.focus();
 });
 // Этап 3. Найдите карточки и элементы панели подробностей.
 // Реализуйте одну общую функцию выбора карточки.

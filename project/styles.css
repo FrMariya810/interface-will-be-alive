@@ -118,7 +118,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
   align-items: end;
-  gap: 4rem;
+  row-gap: 0.6rem;
   padding: 5.5rem 0 4rem;
 }
 
@@ -155,6 +155,29 @@ a:focus-visible {
   color: var(--ink-soft);
   font-size: 1rem;
   line-height: 1.65;
+}
+
+.keyboard-hint {
+  grid-column: 2 / 3;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.keyboard-hint kbd {
+  display: inline-block;
+  min-width: 1.5rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 0.35rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
 }
 
 .workspace {
