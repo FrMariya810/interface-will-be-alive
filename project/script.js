@@ -10,8 +10,15 @@ const detailsDescription = document.querySelector("#details-description");
 const detailsPanel = document.querySelector("#details-panel");
 
 const cards = document.querySelectorAll(".collection-card");
+const filterButtons = document.querySelectorAll(".filter-button");
+const visibleCount = document.querySelector("#visible-count");
+
+const initialTitle = detailsTitle.textContent;
+const initialDescription = detailsDescription.textContent;
+
 
 let selectedCard = null;
+let activeFilter = "all";
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
@@ -37,6 +44,46 @@ function showCard(card) {
   detailsPanel.classList.add("details-panel--pulse");
 }
 
+function clearSelection() {
+  if (selectedCard) {
+    selectedCard.classList.remove("collection-card--selected");
+    selectedCard.setAttribute("aria-pressed", "false");
+    selectedCard = null;
+  }
+
+  detailsTitle.textContent = initialTitle;
+  detailsDescription.textContent = initialDescription;
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyFilter(button.dataset.filter);
+  });
+});
+
+function applyFilter(filter) {
+  activeFilter = filter;
+
+  filterButtons.forEach((btn) => {
+    const isActive = btn.dataset.filter === filter;
+    btn.classList.toggle("filter-button--active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  let count = 0;
+
+  cards.forEach((card) => {
+    const matches = filter === "all" || card.dataset.category === filter;
+    card.classList.toggle("collection-card--hidden", !matches);
+    if (matches) count += 1;
+  });
+
+  visibleCount.textContent = count;
+
+  if (selectedCard && selectedCard.classList.contains("collection-card--hidden")) {
+    clearSelection();
+  }
+}
 // Этап 3. Найдите карточки и элементы панели подробностей.
 // Реализуйте одну общую функцию выбора карточки.
 
