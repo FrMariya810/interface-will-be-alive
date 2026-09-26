@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Учебный проект: музыкальные направления."
+    />
+    <title>Музыкальные направления</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#collection" aria-label="К началу коллекции">
+        <span class="brand__index">INDEX</span>
+        <span class="brand__count">/ 06</span>
+      </a>
+
+      <p class="site-header__course">Музыка · направления · стили</p>
+      <p class="site-header__status"><span aria-hidden="true"></span> Шесть направлений</p>
+    </header>
+
+    <main class="page" id="collection">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="intro__eyebrow">Музыкальные направления</p>
+        <h1 id="page-title">Шесть направлений,<br />которые <em>меняют звук</em></h1>
+        <p class="intro__lead">
+          Выберите карточку, отфильтруйте коллекцию или доверьте выбор случаю.
+          Каждая карточка хранит данные о музыкальном направлении.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Интерактивная коллекция">
+        <div class="catalog">
+          <div class="toolbar">
+            <div class="filters" aria-label="Фильтр коллекции">
+              <button
+                class="filter-button filter-button--active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                Все
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="academic"
+                aria-pressed="false"
+              >
+                Академическая
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="popular"
+                aria-pressed="false"
+              >
+                Интерфейс
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="electronic"
+                aria-pressed="false"
+              >
+                Электронная
+              </button>
+            </div>
+
+            <p class="result-count" aria-live="polite">
+              Показано карточек: <strong id="visible-count">6</strong>
+            </p>
+          </div>
+
+          <div class="collection-grid">
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Классическая музыка"
+              data-description="Жанр музыки, который исполняется по нотам и имеет строгую структуру."
+              data-category="academic"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>01</span><span>Академическая</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🎼</span>
+              <span class="collection-card__title">Классическая музыка</span>
+              <span class="collection-card__summary">Симфонии, сонаты и оркестр</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Опера"
+              data-description="Музыкально-театральный жанр, в котором сценическое действие и сюжет передаются через пение под аккомпанемент оркестра."
+              data-category="academic"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>02</span><span>Академическая</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🪉</span>
+              <span class="collection-card__title">Опера</span>
+              <span class="collection-card__summary">Вокал, оркестр и сцена</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Рок"
+              data-description="Музыкальное направление, которое появилось из рок-н-ролла ."
+              data-category="popular"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>03</span><span>Популярная</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🎸</span>
+              <span class="collection-card__title">Рок</span>
+              <span class="collection-card__summary">Гитары, драйв</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Хип-хоп"
+              data-description="Музыка, состоящая из стилизованного ритма, которая обычно сопровождается рэпом, ритмичной и рифмованной речью."
+              data-category="popular"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>04</span><span>Популярная</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🎤</span>
+              <span class="collection-card__title">Хип-хоп</span>
+              <span class="collection-card__summary">Ритм, речитатив и бит</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Эмбиент"
+              data-description="Электронное направление с акцентом на атмосферу."
+              data-category="electronic"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>05</span><span>Электронная</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🪐</span>
+              <span class="collection-card__title">Эмбиент</span>
+              <span class="collection-card__summary">Атмосфера и звуковые текстуры</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Хаус"
+              data-description="Электронная танцевальная музыка."
+              data-category="electronic"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>06</span><span>Электронная</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">🔊</span>
+              <span class="collection-card__title">Хаус</span>
+              <span class="collection-card__summary">Танцевальный ритм</span>
+            </button>
+          </div>
+        </div>
+
+        <aside
+          class="details-panel"
+          id="details-panel"
+          aria-labelledby="details-title"
+          aria-live="polite"
+        >
+          <div class="details-panel__top">
+            <span class="details-panel__label">Выбранный элемент</span>
+            <span class="details-panel__marker" aria-hidden="true"></span>
+          </div>
+
+          <div class="details-panel__content">
+            <p class="details-panel__number" aria-hidden="true">DETAIL / 01</p>
+            <h2 id="details-title">Выберите карточку</h2>
+            <p id="details-description">
+              Здесь появится описание выбранного музыкального направления.
+              Используйте данные из атрибутов карточки.
+            </p>
+          </div>
+
+          <div class="details-panel__actions">
+            <button class="action-button action-button--primary" id="random-button" type="button">
+              Случайный выбор <span aria-hidden="true">↗</span>
+            </button>
+            <button class="action-button" id="reset-button" type="button">Сбросить</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="assignment-note" aria-labelledby="assignment-title">
+        <p class="assignment-note__index">HOMEWORK / 03</p>
+        <div>
+          <h2 id="assignment-title">Ваш код должен выдерживать сочетание сценариев.</h2>
+          <p>
+            Проверьте не только каждый клик отдельно, но и последовательности:
+            выбор → фильтр → случайный выбор → сброс.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>НИУ ВШЭ · Разработка web-интерфейсов</p>
+      <a href="#collection">Наверх ↑</a>
+    </footer>
+  </body>
+</html>
