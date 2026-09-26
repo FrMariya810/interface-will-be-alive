@@ -12,6 +12,7 @@ const detailsPanel = document.querySelector("#details-panel");
 const cards = document.querySelectorAll(".collection-card");
 const filterButtons = document.querySelectorAll(".filter-button");
 const visibleCount = document.querySelector("#visible-count");
+const randomButton = document.querySelector("#random-button");
 
 const initialTitle = detailsTitle.textContent;
 const initialDescription = detailsDescription.textContent;
@@ -84,6 +85,25 @@ function applyFilter(filter) {
     clearSelection();
   }
 }
+
+randomButton.addEventListener("click", () => {
+  const visibleCards = Array.from(cards).filter(
+    (card) => !card.classList.contains("collection-card--hidden")
+  );
+
+  if (visibleCards.length === 0) return;
+
+  let pool = visibleCards;
+  if (visibleCards.length > 1 && selectedCard) {
+    const withoutCurrent = visibleCards.filter((card) => card !== selectedCard);
+    if (withoutCurrent.length > 0) {
+      pool = withoutCurrent;
+    }
+  }
+
+  const randomIndex = Math.floor(Math.random() * pool.length);
+  showCard(pool[randomIndex]);
+});
 // Этап 3. Найдите карточки и элементы панели подробностей.
 // Реализуйте одну общую функцию выбора карточки.
 
