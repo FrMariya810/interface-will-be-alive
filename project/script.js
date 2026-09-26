@@ -5,6 +5,38 @@
 // Не пытайтесь написать весь файл за один раз: после каждого этапа проверяйте
 // связанный сценарий в браузере и фиксируйте рабочее состояние коммитом.
 
+const detailsTitle = document.querySelector("#details-title");
+const detailsDescription = document.querySelector("#details-description");
+const detailsPanel = document.querySelector("#details-panel");
+
+const cards = document.querySelectorAll(".collection-card");
+
+let selectedCard = null;
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    showCard(card);
+  });
+});
+
+function showCard(card) {
+  if (selectedCard) {
+    selectedCard.classList.remove("collection-card--selected");
+    selectedCard.setAttribute("aria-pressed", "false");
+  }
+
+  card.classList.add("collection-card--selected");
+  card.setAttribute("aria-pressed", "true");
+  selectedCard = card;
+
+  detailsTitle.textContent = card.dataset.title;
+  detailsDescription.textContent = card.dataset.description;
+
+  detailsPanel.classList.remove("details-panel--pulse");
+  void detailsPanel.offsetWidth;
+  detailsPanel.classList.add("details-panel--pulse");
+}
+
 // Этап 3. Найдите карточки и элементы панели подробностей.
 // Реализуйте одну общую функцию выбора карточки.
 
