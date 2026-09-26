@@ -13,6 +13,7 @@ const cards = document.querySelectorAll(".collection-card");
 const filterButtons = document.querySelectorAll(".filter-button");
 const visibleCount = document.querySelector("#visible-count");
 const randomButton = document.querySelector("#random-button");
+const resetButton = document.querySelector("#reset-button");
 
 const initialTitle = detailsTitle.textContent;
 const initialDescription = detailsDescription.textContent;
@@ -103,6 +104,11 @@ randomButton.addEventListener("click", () => {
 
   const randomIndex = Math.floor(Math.random() * pool.length);
   showCard(pool[randomIndex]);
+});
+
+resetButton.addEventListener("click", () => {
+  applyFilter("all");
+  clearSelection();
 });
 // Этап 3. Найдите карточки и элементы панели подробностей.
 // Реализуйте одну общую функцию выбора карточки.
